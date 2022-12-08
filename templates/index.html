@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Depression Prediction webapp</title>
+
+    <link rel="icon" type="image/png" href="../static/images/bg_1.jpg">
+    
+<style>
+
+</style>
+</head>
+
+<body>
+    <section class="head">
+       <div class="container">
+        <div class="tag">
+            <h1>Early Detection of Cervical Cancer Using Machine Learning Technique </h1>
+            <p id="name">By <br>Taiwo Christiana Kehinde</p>
+        </div>
+       </div>
+    </section>
+    <hr>
+    <section class="body">
+        <div class="container">
+            <div class="intro">
+                <p>
+                    Cervical cancer is a cancer that affects the cervix which is a part of the female reproductive system that is located at the pelvis. Cervical cancers mostly begin developing in the linings of the cervix as pre-cancerous cells and gradually develop into cancer cells. The cancer cells develop into cervical cancer and is capable of spreading to the lungs, intestines and bladder if not properly treated, and these cancer cells do not display symptoms or cause health issues until it has developed considerably and begin to cause serious health problems. To helpcurb this challenge, we built a machine learning model that is able to detect the tendency of having cervical cancer using machine learning technique. <br> Fill the form below to interact with the model.
+                </p>
+            
+            </div>
+        </div>
+        <!-- <div class="dim"></div> -->
+        <div class="container">
+           
+            <form action="{{url_for('predict')}}" method="post">
+                    <div class="grid">
+                        <div class="bx">
+                            <label for="name">Enter Your Name: </label>
+                            <input type="text" name="name">
+                            
+                            <p class="cell">
+                                    <label 
+                                        for="age">Enter
+                                        Your
+                                        Age
+                                        :</label> <br>
+                                <input name="age" type="number" required>
+                            </p>
+                            <p class="cell">
+                                <label 
+                                        for="nsp">Enter
+                                        No. of Sexual Partners:
+                                </label> <br>
+                                <input type="number" name="nsp" required >
+
+                            </p>
+                           
+                            <p class="cell">
+                                <label for="nsp">First sexual intercourse:
+                                </label> <br>
+                                <input type="number" name="fsi" required>
+                            </p>
+                        
+                                
+                            <p class="cell">
+                                    <label for="NoP">No. of Pregnancies:
+                                    </label> <br>
+                                    <input type="number" name="NoP" required>
+                            </p>
+                            <p class="cell">
+                                <label for="Dx">Dx?</label> <br>
+                                <select name="Dx" required='required'>
+                                    <option value="">Select</option>
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
+                            </p>
+                                
+                            <p class="cell">
+                                    <label for="smoke">Do you Smoke? (Passive/Active):
+                                    </label> <br>
+                                    <select name="smoke" required='required'>
+                                        <option value="">Select</option>
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                            </p>
+                            
+                            
+                        </div>
+                        
+                        
+                        <div class="bx">
+                            <p class="cell">
+                                <label for="smokeYr">How Long Have you been smoking?:
+                                </label> <br>
+                                <input type="number" name="smokeYr" required>
+                            </p>
+                            <p class="cell">
+                                <label for="smokePYr">Smokes (packs/year):
+                                </label> <br>
+                                <input type="number" name="smokePYr" required>
+                            </p>
+                            <p class="cell">
+                                
+                                <label 
+                                        for="HoCon">Do you take Hormonal Contraceptives?</label> <br>
+                                <select name="HoCon" required='required'>
+                                    <option value="">Select</option>
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
+                            </p>
+                            <p class="cell">
+                                    <label 
+                                        for="HoConYr">Hormonal Contraceptives (How Many years)</label> <br>
+                                        <input type="number" name="HoConYr" required>
+                            </p>
+                            <p class="cell">
+                                <label 
+                                        for="iud">Do you make use of Intrauterine Device (IUD)?</label> <br>
+                                <select name="iud" required='required'>
+                                    <option value="">Select</option>
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
+                            </p>
+                                
+                            <p class="cell">
+                                <label for="iudYr">How long have you made use Intrauterine Device (IUD)?</label> <br>
+                                <input type="number" name="iudYr" required>
+                            </p>
+                                
+                            <p class="cell">
+                                <label for="std">How many STDs do you have?</label> <br>
+                                <input type="number" name="std" required>
+                            </p>
+                            
+                            
+                        </div>
+                        
+                        <div class="bx">
+                            <p class="cell">
+                                <label for="stdGH">Do you have STDs: Genital Herpes?</label> <br>
+                                <select name="stdGH" required='required'>
+                                    <option value="">Select</option>
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
+                            </p>
+                            <p class="cell">
+                                <label for="stdND">Number of diagnosis (STDs)?</label> <br>
+                                <input type="number" name="stdND" required>
+                            </p>
+                            <p class="cell">
+                                <label for="stdTFD">Time since first diagnosis (STDs)</label> <br>
+                                <input type="number" name="stdTFD" required>
+                            </p>
+                            
+                            <p class="cell">
+                                <label 
+                                        for="Hin">Hinselmann?</label> <br>
+                                <select name="Hin" required='required'>
+                                    <option>Select</option>
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
+                            </p>
+                            <p class="cell">
+                                <label for="Sch">Schiller</label> <br>
+                                <select name="Sch" required='required'>
+                                    <option>Select</option>
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
+                            </p>
+                            <p class="cell">
+                                <label for="Cit">Citology</label> <br>
+                                <select name="Cit" required='required'>
+                                    <option>Select</option>
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
+                            </p>
+                                
+                               
+                            
+                        </div>
+                    </div>
+
+                <!-- <div class="container"> -->
+                    <div id="base">
+                       <div>
+                        <button type="submit" id="btn" class="btn submit">Submit</button>
+                       </div>
+
+                        <div>
+                            <button type="reset" class="btn clear">Clear</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            
+            <br>
+            <br>
+        </div>
+
+        <hr>
+    </section>
+
+    <footer>
+        <div class="footer">
+            <div class="container">
+                <div class="grid">
+                    <div class="col">
+                        <h3>Did you know?</h3>
+                        <p>
+                            Early diagnosis of cervical cancer will help to improve the health service to individuals of different income levels
+                            easily accessible and will help in early treatments of the cancer while reducing the spending on a full-blown cancer
+                            treatment.</p>
+                            <br>
+                            <p>The attributes which are tested are Age, number of sexual partners, first sexual experience, number of births, Smoking,
+                            period of smoking, sexually transmitted diseases (STD) history, Hinselmann, Shiller, Cytology, Biopsy among others.
+
+                        </p>
+                    </div>
+                    <div class="col">
+                        <h3>Preventive Measures</h3>
+                        <p>
+                            Currently one of the best ways of discovering if a lady has cervical cancer is through regular screening which is done
+                            at hospitals. Access to these hospitals are usually time consuming and often difficult for individuals of low-income
+                            levels and rural areas (Chen, 2019). Therefore, the best way is early detection to enable early treatment
+                            
+                        </p>
+                    </div>
+                    <div class="col">
+                        <h3>Helpful Tips</h3>
+                        <p>
+                            The early diagnosing of Cervical cancer will help in the preventive and proper management of cervical cancer and its
+                            patients while reducing the mortality and prevalence rate, which both have negative economic and health strain to the
+                            society .
+                        </p>
+                        <ul>
+                            <li>Early and periodic medical visits</li>
+                            <li>Practicing safe sex and maintaining sexual partners</li>
+                            <li>Healthy living and lifestyle activities</li>
+                        </ul>
+                
+                    </div>
+                </div>
+            </div>
+            <p class="text-center">
+                Copyright &copy;
+                <script>document.write(new Date().getFullYear());</script> All rights reserved
+            </p>
+        </footer>
+<!-- <script>
+    let btn = document.getElementById('btn');
+        let textToShow = document.getElementById('text');
+
+        btn.addEventListener('click', () => {
+            if (textToShow.style.display === 'none') {
+                textToShow.style.display = 'block';
+                textToShow.style.transition= '.5s ease';
+            }
+            else {
+                textToShow.style.display = 'none';
+            }
+        })
+
+</script> -->
+
+</body>
+
+</html>
